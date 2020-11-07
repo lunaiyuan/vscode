@@ -18,7 +18,7 @@ class Player:
 
 #ddd
 class Police(Player):
-        def damage(self, target,damage = 40, ):
+        def damage(self, target,damage = 50, ):
             target.health -= damage
             if target.health >= 0:
 
@@ -40,19 +40,27 @@ def main():
     t2 = T("t2")
     t3 = T("t3")
     ts = [t1,t2,t3]
+    alives = ts
     while True :
         if p1.health > 0 :
             for tt in ts:
-                if tt.health >0 :
-                    tt.damage(p1)
+                p1.damage(tt)
+                while tt.health >0 :
+                    
+                    for a in alives:
+                        a.damage(p1)
                     p1.damage(tt)
-                   
-            continue
+                alives.remove(tt)
+                if not alives:
+                    print("反恐精英胜利")
+                    break  
+                
+            
             
         else:
             print("反恐精英阵亡")
             break
-        print("消灭所有恐怖分子")
+  
             
 if __name__ == "__main__":
     main()
