@@ -1,8 +1,8 @@
 '''
 Author: your name
 Date: 2020-11-04 11:34:54
-LastEditTime: 2020-11-07 11:33:20
-LastEditors: your name
+LastEditTime: 2020-11-07 19:59:28
+LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \siming\数据可视化\02.py
 '''
@@ -12,9 +12,9 @@ import matplotlib.pyplot as plt
 
 class RandomWalk():
     def __init__(self, num_point=5000):
-        #初始化
+        # 初始化
         self.num_point = num_point
-        #开始于0
+        # 开始于0
         self.x_value = [0]
         self.y_value = [0]
 
@@ -26,11 +26,11 @@ class RandomWalk():
             return x_step
 
         while len(self.x_value) < self.num_point:
-            #决定前进的方向以及距离
+            # 决定前进的方向以及距离
             x_step = get_STEP()
             y_step = get_STEP()
 
-            #拒绝原地
+            # 拒绝原地
             if x_step == 0 and y_step == 0:
                 continue
             next_x = self.x_value[-1] + x_step
@@ -46,9 +46,7 @@ while True:
     num_point = range(rw.num_point)
     plt.figure(figsize=(10, 6))
     plt.scatter(rw.x_value, rw.y_value, c=num_point, s=15)
-
     plt.show()
-
     keep_running = input("y/n?")
     if keep_running == "n":
         break
