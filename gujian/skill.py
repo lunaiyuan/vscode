@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2020-11-09 20:26:24
-LastEditTime: 2020-11-10 02:16:15
+LastEditTime: 2020-11-10 02:28:51
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \vscode\gujian\mian.py
@@ -55,8 +55,8 @@ class Skill():
         t1.start()
         time1 = time.time()
         if self.name == "qianjiewanhe":
-            while Ture:
-                pyautogui.press("e")
+            while True:
+                pyautogui.rightClick()
                 if time.time() - time1 > 9.5:
                     return
         elif self.name == "huangdiezhenyi":
@@ -71,9 +71,9 @@ class Skill():
             time.sleep(1)
 
     def check(self):
-        canornot[name] = False
+        canornot[self.name] = False
         time.sleep(self.cd)
-        canornot[name] = True
+        canornot[self.name] = True
         #can_use_skill.append(self.name)
 
 
