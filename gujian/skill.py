@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2020-11-09 20:26:24
-LastEditTime: 2020-11-10 02:28:51
+LastEditTime: 2020-11-10 15:01:58
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \vscode\gujian\mian.py
@@ -50,30 +50,31 @@ class Skill():
 
     def use(self):
         #使用技能并且记录cd变化技能状态
-        pyautogui.press(f"{self.anjian}")
-        t1 = Thread(target=self.check)
-        t1.start()
-        time1 = time.time()
-        if self.name == "qianjiewanhe":
-            while True:
-                pyautogui.rightClick()
-                if time.time() - time1 > 9.5:
-                    return
-        elif self.name == "huangdiezhenyi":
-            while True:
-                if time.time() - time1 < 2:
-                    pyautogui.press('1')
-                elif time.time() - time1 >= 2 and time.time() - time1 < 2.85:
-                    time.sleep(0.1)
-                else:
-                    return
-        elif self.name == "hongguang":
-            time.sleep(1)
-
+        if canornot[self.name]:
+            pyautogui.press(f"{self.anjian}")
+            t1 = Thread(target=self.check)
+            t1.start()
+            time1 = time.time()
+            if self.name == "qianjiewanhe":
+                while True:
+                    pyautogui.rightClick()
+                    if time.time() - time1 > 9.5:
+                        return
+            elif self.name == "huangdiezhenyi":
+                time.sleep(2.9)
+            elif self.name == "hongguang":
+                time.sleep(1)
+        else:
+            print(f'技能{self.name}剩余冷却时间:{self.cdtime}秒')
     def check(self):
         canornot[self.name] = False
-        time.sleep(self.cd)
-        canornot[self.name] = True
+        time1 = time.time()
+        while True:
+            self.cdtime = self.cd - (time.time() - time1)
+            time.sleep(1)
+            if self.cdtime <= 0:
+                canornot[self.name] = True
+                return
         #can_use_skill.append(self.name)
 
 
@@ -103,7 +104,7 @@ class Cifu(Skill):
                         time.sleep(0.1)
                         pyautogui.press('z')
                         self.baoyin()
-                        break
+                        return
 
     def baoyin(self):
         time1 = time.time()

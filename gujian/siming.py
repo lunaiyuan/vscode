@@ -1,36 +1,55 @@
 '''
 Author: Pilzz
 Date: 2020-11-09 21:05:57
-LastEditTime: 2020-11-10 02:28:00
+LastEditTime: 2020-11-10 15:02:10
 LastEditors: Please set LastEditors
 Description: Pilzz
-FilePath: \vscode\gujian\main.py
+FilePath: //vscode//gujian//main.py
 '''
 
 from skill import *
 import pyautogui
 from threading import Thread
+from pynput import keyboard
 skill = [
     'cifu',
     'qianjiewanhe',
-    #'yuhongqingjue',
+    # 'yuhongqingjue',
     'huangdiezhenyi',
     'hongguang',
 ]
 
 
 def zuozuoyou():
-    #112循环
-    pyautogui.click()
-    time.sleep(0.4)
-    pyautogui.click()
-    time.sleep(0.4)
-    pyautogui.rightClick()
-    time.sleep(0.4)
+    # 112循环
+
+    global x
+    while True:
+        global x
+        if x:
+            pyautogui.click()
+            time.sleep(0.4)
+            pyautogui.click()
+            time.sleep(0.4)
+            pyautogui.rightClick()
+            time.sleep(0.4)
+        else:
+            return
+
+
+def press1():
+    global x
+
+    while True:
+        if x:
+            pyautogui.press("1")
+            time.sleep(0.1)
+        else:
+            return
 
 
 def kaichang():
-    #开场爆发
+    # 开场爆发
     pyautogui.press("z")
     huangdiezhenyi.use()
     hongguang.use()
@@ -38,19 +57,82 @@ def kaichang():
     qianjiewanhe.use()
 
 
-def main():
-    global cifu, qianjiewanhe, huangdiezhenyi, hongguang
-    cifu = Cifu(20)
-    qianjiewanhe = Skill("qianjiewanhe", 20)
-    #yuhongqingjue = Skill("yuhongqingjue", 20)
-    huangdiezhenyi = Skill("huangdiezhenyi", 20)
-    hongguang = Skill("hongguang", 20)
+def kaishi():
+    print('开始')
+    global x
+    x = True
 
-    kaichang()
+
+def jieshu():
+    global x
+    x = False
+
+
+def cf():
+    cifu.use()
+
+
+def hd():
+    huangdiezhenyi.use()
+
+
+def qianjie():
+    qianjiewanhe.use()
+
+
+def hot():
+    with keyboard.GlobalHotKeys({
+        '[': kaishi,
+        ']': jieshu,
+        'q': cf,
+        'r': hd,
+        '2': qianjie
+    }) as h:
+        h.join()
+
+
+pyautogui.PAUSE = 0.01
+pyautogui.FAILSAFE = True
+
+
+def main():
+    global cifu, qianjiewanhe, huangdiezhenyi, hongguang, x
+    x = False
+    jisu = 20.78
+    cifu = Cifu(jisu)
+    qianjiewanhe = Skill("qianjiewanhe", jisu)
+    #yuhongqingjue = Skill("yuhongqingjue", 20)
+    huangdiezhenyi = Skill("huangdiezhenyi", jisu)
+    hongguang = Skill("hongguang", jisu)
+    Thread(target=press1).start()
+    t1 = Thread(target=hot)
+    t1.start()
+
     while True:
-        zuozuoyou()
-        pyautogui.press("1")
+        if x:
+            if canornot['qianjiewanhe'] and canornot['cifu'] and canornot['huangdiezhenyi']:
+                Thread(target=press1).start()
+                kaichang()
+                txunhuan = Thread(target=zuozuoyou)
+                txunhuan.start()
+                break
+            else:
+                txunhuan = Thread(target=zuozuoyou)
+                txunhuan.start()
+                Thread(target=press1).start()
+        else:
+            print(x)
+            time.sleep(1)
+    while True:
+        if x:
+            print('开始了')
+            time.sleep(2)
+        else:
+            main()
 
 
 if __name__ == "__main__":
     main()
+
+
+
