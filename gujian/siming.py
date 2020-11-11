@@ -1,7 +1,7 @@
 '''
 Author: Pilzz
 Date: 2020-11-09 21:05:57
-LastEditTime: 2020-11-11 10:08:38
+LastEditTime: 2020-11-11 11:25:22
 LastEditors: Please set LastEditors
 Description: Pilzz
 FilePath: //vscode//gujian//main.py
@@ -14,7 +14,7 @@ from pynput import keyboard
 
 
 skill = [
-    #技能的集合
+    # 技能的集合
     'cifu',
     'qianjiewanhe',
     # 'yuhongqingjue',
@@ -26,16 +26,23 @@ skill = [
 def zuozuoyou():
     # 112循环
 
-    global x
+    global x, l
+    Thread(target=lingli).start()
     while True:
         global x
         if x:
-            pyautogui.click()
-            time.sleep(0.5)
-            pyautogui.click()
-            time.sleep(0.5)
-            pyautogui.rightClick()
-            time.sleep(0.4)
+            if l:
+                pyautogui.click()
+                time.sleep(0.5)
+                pyautogui.click()
+                time.sleep(0.55)
+                pyautogui.rightClick()
+                time.sleep(0.4)
+            else:
+                time1 = time.time()
+                while time.time() - time1 <= 1.5:
+                    pyautogui.click()
+
         else:
             return
 
@@ -83,6 +90,20 @@ def qianjie():
     qianjiewanhe.use()
 
 
+def lingli():
+    global x, l
+    l = True
+    while x:
+        im = pyautogui.screenshot(region=(1180, 500, 1, 1))
+        px = im.getpixel((0, 0))
+        if px[1] <= 170:
+            l = False
+            print(px[1])
+        else:
+            l = True
+        time.sleep(0.3)
+
+
 def hot():
     print('热键检测开始')
     with keyboard.GlobalHotKeys({
@@ -110,15 +131,13 @@ def main():
     huangdiezhenyi = Skill("huangdiezhenyi", jisu)
     hongguang = Skill("hongguang", jisu)
 
-   
-
     def shuchucaozup():
         while True:
             if x:
-                if canornot['qianjiewanhe'] and canornot['cifu'] and canornot['huangdiezhenyi']: 
+                if canornot['qianjiewanhe'] and canornot['cifu'] and canornot['huangdiezhenyi']:
                     Thread(target=press1).start()
-                    kaichang()
                     txunhuan = Thread(target=zuozuoyou)
+                    kaichang()
                     txunhuan.start()
                     break
                 else:
@@ -126,14 +145,14 @@ def main():
                     txunhuan = Thread(target=zuozuoyou)
                     txunhuan.start()
                     break
-                    
+
             else:
                 print(x)
                 time.sleep(1)
         while True:
             if x:
                 print('开始了')
-                time.sleep(3)
+                time.sleep(2)
             else:
                 shuchucaozup()
     shuchucaozup()

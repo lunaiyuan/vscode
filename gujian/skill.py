@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2020-11-09 20:26:24
-LastEditTime: 2020-11-10 15:56:07
+LastEditTime: 2020-11-11 11:21:21
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \vscode\gujian\mian.py
@@ -67,6 +67,7 @@ class Skill():
                     if time2 - time1 >= 2.85:
                         return
                     else :
+                        pyautogui.press('1')
                         time.sleep(0.1)
             elif self.name == "hongguang":
                 time.sleep(1)
