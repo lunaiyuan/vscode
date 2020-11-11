@@ -1,7 +1,7 @@
 '''
 Author: your name
 Date: 2020-11-09 20:26:24
-LastEditTime: 2020-11-11 11:21:21
+LastEditTime: 2020-11-11 17:04:24
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \vscode\gujian\mian.py
@@ -93,7 +93,10 @@ class Cifu(Skill):
     def kaichangcifu(self):
         self.use()
         Thread(target=self.kpanduanka).start()
-
+    def usecifu(self):
+        self.use()
+        ll = self.linglizhuangtai()
+        print(ll)
     def kpanduanka(self):
         while True:
             im = pyautogui.screenshot(region=(1069, 599, 1, 1))
@@ -115,9 +118,28 @@ class Cifu(Skill):
 
     def baoyin(self):
         time1 = time.time()
-
         while True:
             pyautogui.press('e')
             if time.time() - time1 > 12:
                 #y = True
                 break
+     
+    def linglizhuangtai(self):
+        #获得灵狸的状态，如直接能切返回1，2，需要等待返回3,4
+        im = pyautogui.screenshot(region=(1077, 619, 1, 1))
+        px = im.getpixel((0, 0))
+        npx1 = getpxmohu((77,155,173))      #蓝色
+        npx2 = getpxmohu((166,158,124))     #红色
+
+        if px[0] in npx1[0] and px[1] in npx1[1] and px[2] in npx1[2]:
+            return 1
+        elif px[0] in npx2[0] and px[1] in npx2[1] and px[2] in npx2[2]:
+            return 2
+        else:
+            im = pyautogui.screenshot(region=(1057, 615, 1, 1))
+            px = im.getpixel((0, 0))
+            npx = getpxmohu((251,247,192))
+            if px[0] in npx[0] and px[1] in npx[1] and px[2] in npx[2]:
+                return 3
+            else :
+                return 4
