@@ -1,7 +1,7 @@
 '''
 Author: Pilzz
 Date: 2020-11-09 21:05:57
-LastEditTime: 2020-11-10 16:12:37
+LastEditTime: 2020-11-11 10:08:38
 LastEditors: Please set LastEditors
 Description: Pilzz
 FilePath: //vscode//gujian//main.py
@@ -14,6 +14,7 @@ from pynput import keyboard
 
 
 skill = [
+    #技能的集合
     'cifu',
     'qianjiewanhe',
     # 'yuhongqingjue',
@@ -132,7 +133,7 @@ def main():
         while True:
             if x:
                 print('开始了')
-                time.sleep(2)
+                time.sleep(3)
             else:
                 shuchucaozup()
     shuchucaozup()
