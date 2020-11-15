@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66d4b70e-2c78-4177-8d87-75e3a00f4a43" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/音乐下载器1.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2945">
+              <caret line="95" selection-start-line="95" selection-end-line="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/音乐下载器beta1.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/音乐下载器/音乐下载器.exe">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>id=</find>
+      <find>textfin</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/51jiob.py" />
+        <option value="$PROJECT_DIR$/q.html" />
+        <option value="$PROJECT_DIR$/qq音乐.py" />
+        <option value="$PROJECT_DIR$/1.html" />
+        <option value="$PROJECT_DIR$/guess.py" />
+        <option value="$PROJECT_DIR$/json.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2]两数相加.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[3]无重复字符的最长子串.py" />
+        <option value="$PROJECT_DIR$/p1.py" />
+        <option value="$PROJECT_DIR$/1.py" />
+        <option value="$PROJECT_DIR$/freemp3.py" />
+        <option value="$PROJECT_DIR$/MainWindow.py" />
+        <option value="$PROJECT_DIR$/dist/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/鼓声分离.py" />
+        <option value="$PROJECT_DIR$/音乐下载器.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="605" />
+    <option name="y" value="60" />
+    <option name="width" value="1115" />
+    <option name="height" value="904" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../数据可视化/Scripts/python.exe" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.1">
+    <configuration name="音乐下载器" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="51job" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/音乐下载器.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="51job" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MainWindow" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="51job" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainWindow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="音乐下载器beta1.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="51job" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/音乐下载器beta1.1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="freemp3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="51job" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/freemp3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.1" />
+      <item itemvalue="Python.MainWindow" />
+      <item itemvalue="Python.音乐下载器" />
+      <item itemvalue="Python.音乐下载器beta1.1" />
+      <item itemvalue="Python.freemp3" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.1" />
+        <item itemvalue="Python.freemp3" />
+        <item itemvalue="Python.音乐下载器beta1.1" />
+        <item itemvalue="Python.音乐下载器" />
+        <item itemvalue="Python.MainWindow" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66d4b70e-2c78-4177-8d87-75e3a00f4a43" name="Default Changelist" comment="" />
+      <created>1591078359897</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591078359897</updated>
+      <workItem from="1591078361007" duration="659000" />
+      <workItem from="1591079584934" duration="2204000" />
+      <workItem from="1591340069178" duration="1382000" />
+      <workItem from="1591341848583" duration="3337000" />
+      <workItem from="1591780905121" duration="2100000" />
+      <workItem from="1592112490810" duration="10257000" />
+      <workItem from="1592192421247" duration="1777000" />
+      <workItem from="1592213692469" duration="168000" />
+      <workItem from="1592287133270" duration="2487000" />
+      <workItem from="1592297303352" duration="2248000" />
+      <workItem from="1592469481542" duration="11000" />
+      <workItem from="1592983649121" duration="36000" />
+      <workItem from="1592983703718" duration="3683000" />
+      <workItem from="1592990733643" duration="5640000" />
+      <workItem from="1593066248490" duration="8233000" />
+      <workItem from="1593075527010" duration="196000" />
+      <workItem from="1593152757560" duration="594000" />
+      <workItem from="1593252860680" duration="100000" />
+      <workItem from="1593852852101" duration="4338000" />
+      <workItem from="1596613423128" duration="1295000" />
+      <workItem from="1597110166332" duration="1452000" />
+      <workItem from="1597118207364" duration="1871000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54068000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49413645" weight="0.28494042" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978678" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50586355" side_tool="true" visible="true" weight="0.3997833" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="leetcode" order="5" side_tool="true" weight="0.32889125" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/qq$freemp3.coverage" NAME="freemp3 Coverage Results" MODIFIED="1597119937549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$_3_.coverage" NAME="[3]无重复字符的最长子串 Coverage Results" MODIFIED="1592986770685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn" />
+    <SUITE FILE_PATH="coverage/$guess.coverage" NAME="guess Coverage Results" MODIFIED="1591343490463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1592996933556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$guess.coverage" NAME="guess Coverage Results" MODIFIED="1591781699545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$.coverage" NAME="音乐下载器 Coverage Results" MODIFIED="1597119476665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$Music__QQ.coverage" NAME="Music__QQ Coverage Results" MODIFIED="1591341274501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$0" />
+    <SUITE FILE_PATH="coverage/qq$p1.coverage" NAME="p1 Coverage Results" MODIFIED="1592991674240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$1.coverage" NAME="1 Coverage Results" MODIFIED="1597119961406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$beta1_1.coverage" NAME="音乐下载器beta1.1 Coverage Results" MODIFIED="1597119829110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/qq$qq.coverage" NAME="qq音乐 Coverage Results" MODIFIED="1591340735456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/51jiob.py" />
+    <entry file="file://$PROJECT_DIR$/q.html" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$0/Music__QQ.py" />
+    <entry file="file://$PROJECT_DIR$/qq音乐.py" />
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="336" selection-start-line="336" selection-end-line="336" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8084">
+          <caret line="883" column="83" lean-forward="true" selection-start-line="883" selection-start-column="83" selection-end-line="883" selection-end-column="83" />
+          <folding>
+            <element signature="e#9364#9370#1" expanded="true" />
+            <element signature="e#9557#9563#1" expanded="true" />
+            <element signature="e#9682#9688#1" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#span#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10242#10248#1" expanded="true" />
+            <element signature="e#10282#10288#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10936#10942#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#em#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#em#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#4;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#22462#22483#0" expanded="true" />
+            <element signature="e#22525#22546#0" expanded="true" />
+            <element signature="e#22609#22633#0" expanded="true" />
+            <element signature="e#23895#23920#0" expanded="true" />
+            <element signature="e#24005#24026#0" expanded="true" />
+            <element signature="e#24111#24132#0" expanded="true" />
+            <element signature="e#24219#24240#0" expanded="true" />
+            <element signature="e#24368#24392#0" expanded="true" />
+            <element signature="e#24755#24761#0" expanded="true" />
+            <element signature="e#24831#24837#0" expanded="true" />
+            <element signature="e#25195#25216#0" expanded="true" />
+            <element signature="e#25463#25484#0" expanded="true" />
+            <element signature="e#25971#25975#0" expanded="true" />
+            <element signature="e#25975#25981#0" expanded="true" />
+            <element signature="e#25981#25987#0" expanded="true" />
+            <element signature="e#26061#26067#0" expanded="true" />
+            <element signature="e#26067#26073#0" expanded="true" />
+            <element signature="e#26073#26077#0" expanded="true" />
+            <element signature="e#26152#26173#0" expanded="true" />
+            <element signature="e#26253#26271#0" expanded="true" />
+            <element signature="e#26401#26427#0" expanded="true" />
+            <element signature="e#26676#26697#0" expanded="true" />
+            <element signature="e#27193#27197#0" expanded="true" />
+            <element signature="e#27197#27203#0" expanded="true" />
+            <element signature="e#27203#27209#0" expanded="true" />
+            <element signature="e#27289#27310#0" expanded="true" />
+            <element signature="e#27497#27518#0" expanded="true" />
+            <element signature="e#28457#28461#0" expanded="true" />
+            <element signature="e#28461#28467#0" expanded="true" />
+            <element signature="e#28467#28473#0" expanded="true" />
+            <element signature="e#28551#28572#0" expanded="true" />
+            <element signature="e#28858#28864#1" expanded="true" />
+            <element signature="e#29436#29440#0" expanded="true" />
+            <element signature="e#29440#29446#0" expanded="true" />
+            <element signature="e#29446#29452#0" expanded="true" />
+            <element signature="e#29531#29552#0" expanded="true" />
+            <element signature="e#29613#29633#0" expanded="true" />
+            <element signature="e#29859#29865#1" expanded="true" />
+            <element signature="e#30187#30235#0" expanded="true" />
+            <element signature="e#30637#30641#0" expanded="true" />
+            <element signature="e#30641#30647#0" expanded="true" />
+            <element signature="e#30647#30653#0" expanded="true" />
+            <element signature="e#30734#30740#0" expanded="true" />
+            <element signature="e#30740#30746#0" expanded="true" />
+            <element signature="e#30746#30750#0" expanded="true" />
+            <element signature="e#30829#30850#0" expanded="true" />
+            <element signature="e#30877#30909#0" expanded="true" />
+            <element signature="e#31247#31268#0" expanded="true" />
+            <element signature="e#31886#31906#0" expanded="true" />
+            <element signature="e#32054#32075#0" expanded="true" />
+            <element signature="e#32311#32335#0" expanded="true" />
+            <element signature="e#32627#32648#0" expanded="true" />
+            <element signature="e#33143#33164#0" expanded="true" />
+            <element signature="e#33424#33430#1" expanded="true" />
+            <element signature="e#34298#34304#0" expanded="true" />
+            <element signature="e#34304#34310#0" expanded="true" />
+            <element signature="e#34310#34314#0" expanded="true" />
+            <element signature="e#34389#34410#0" expanded="true" />
+            <element signature="e#34614#34635#0" expanded="true" />
+            <element signature="e#35109#35130#0" expanded="true" />
+            <element signature="e#35327#35359#0" expanded="true" />
+            <element signature="e#35568#35589#0" expanded="true" />
+            <element signature="e#35812#35833#0" expanded="true" />
+            <element signature="e#36192#36213#0" expanded="true" />
+            <element signature="e#36627#36648#0" expanded="true" />
+            <element signature="e#37620#37641#0" expanded="true" />
+            <element signature="e#37976#37997#0" expanded="true" />
+            <element signature="e#39466#39487#0" expanded="true" />
+            <element signature="e#39577#39598#0" expanded="true" />
+            <element signature="e#39873#39894#0" expanded="true" />
+            <element signature="e#40204#40225#0" expanded="true" />
+            <element signature="e#41917#41938#0" expanded="true" />
+            <element signature="e#42043#42064#0" expanded="true" />
+            <element signature="e#42174#42195#0" expanded="true" />
+            <element signature="e#42262#42287#0" expanded="true" />
+            <element signature="e#42900#42921#0" expanded="true" />
+            <element signature="e#42963#42984#0" expanded="true" />
+            <element signature="e#43047#43071#0" expanded="true" />
+            <element signature="e#44333#44358#0" expanded="true" />
+            <element signature="e#44443#44464#0" expanded="true" />
+            <element signature="e#44549#44570#0" expanded="true" />
+            <element signature="e#44657#44678#0" expanded="true" />
+            <element signature="e#44806#44830#0" expanded="true" />
+            <element signature="e#45193#45199#0" expanded="true" />
+            <element signature="e#45269#45275#0" expanded="true" />
+            <element signature="e#45633#45654#0" expanded="true" />
+            <element signature="e#45901#45922#0" expanded="true" />
+            <element signature="e#46409#46413#0" expanded="true" />
+            <element signature="e#46413#46419#0" expanded="true" />
+            <element signature="e#46419#46425#0" expanded="true" />
+            <element signature="e#46499#46505#0" expanded="true" />
+            <element signature="e#46505#46511#0" expanded="true" />
+            <element signature="e#46511#46515#0" expanded="true" />
+            <element signature="e#46590#46611#0" expanded="true" />
+            <element signature="e#46691#46709#0" expanded="true" />
+            <element signature="e#46839#46865#0" expanded="true" />
+            <element signature="e#47114#47135#0" expanded="true" />
+            <element signature="e#47631#47635#0" expanded="true" />
+            <element signature="e#47635#47641#0" expanded="true" />
+            <element signature="e#47641#47647#0" expanded="true" />
+            <element signature="e#47727#47748#0" expanded="true" />
+            <element signature="e#47935#47956#0" expanded="true" />
+            <element signature="e#48895#48899#0" expanded="true" />
+            <element signature="e#48899#48905#0" expanded="true" />
+            <element signature="e#48905#48911#0" expanded="true" />
+            <element signature="e#48989#49010#0" expanded="true" />
+            <element signature="e#49296#49302#1" expanded="true" />
+            <element signature="e#49874#49878#0" expanded="true" />
+            <element signature="e#49878#49884#0" expanded="true" />
+            <element signature="e#49884#49890#0" expanded="true" />
+            <element signature="e#49969#49990#0" expanded="true" />
+            <element signature="e#50051#50071#0" expanded="true" />
+            <element signature="e#50297#50303#1" expanded="true" />
+            <element signature="e#50625#50673#0" expanded="true" />
+            <element signature="e#51075#51079#0" expanded="true" />
+            <element signature="e#51079#51085#0" expanded="true" />
+            <element signature="e#51085#51091#0" expanded="true" />
+            <element signature="e#51172#51178#0" expanded="true" />
+            <element signature="e#51178#51184#0" expanded="true" />
+            <element signature="e#51184#51188#0" expanded="true" />
+            <element signature="e#51267#51288#0" expanded="true" />
+            <element signature="e#51315#51347#0" expanded="true" />
+            <element signature="e#51685#51706#0" expanded="true" />
+            <element signature="e#52324#52344#0" expanded="true" />
+            <element signature="e#52492#52513#0" expanded="true" />
+            <element signature="e#52749#52773#0" expanded="true" />
+            <element signature="e#53065#53086#0" expanded="true" />
+            <element signature="e#53581#53602#0" expanded="true" />
+            <element signature="e#53862#53868#1" expanded="true" />
+            <element signature="e#54736#54742#0" expanded="true" />
+            <element signature="e#54742#54748#0" expanded="true" />
+            <element signature="e#54748#54752#0" expanded="true" />
+            <element signature="e#54827#54848#0" expanded="true" />
+            <element signature="e#55052#55073#0" expanded="true" />
+            <element signature="e#55547#55568#0" expanded="true" />
+            <element signature="e#55765#55797#0" expanded="true" />
+            <element signature="e#56006#56027#0" expanded="true" />
+            <element signature="e#56250#56271#0" expanded="true" />
+            <element signature="e#56634#56655#0" expanded="true" />
+            <element signature="e#56807#56828#0" expanded="true" />
+            <element signature="e#56986#57007#0" expanded="true" />
+            <element signature="e#57490#57511#0" expanded="true" />
+            <element signature="e#57965#57986#0" expanded="true" />
+            <element signature="e#58387#58391#0" expanded="true" />
+            <element signature="e#58602#58623#0" expanded="true" />
+            <element signature="e#58910#58931#0" expanded="true" />
+            <element signature="e#59928#59934#0" expanded="true" />
+            <element signature="e#59936#59942#0" expanded="true" />
+            <element signature="e#63588#63609#0" expanded="true" />
+            <element signature="e#64558#64564#0" expanded="true" />
+            <element signature="e#64566#64572#0" expanded="true" />
+            <element signature="e#67231#67252#0" expanded="true" />
+            <element signature="e#67810#67831#0" expanded="true" />
+            <element signature="e#68474#68495#0" expanded="true" />
+            <element signature="e#68954#68975#0" expanded="true" />
+            <element signature="e#69206#69227#0" expanded="true" />
+            <element signature="e#69413#69434#0" expanded="true" />
+            <element signature="e#69893#69914#0" expanded="true" />
+            <element signature="e#70375#70396#0" expanded="true" />
+            <element signature="e#70653#70674#0" expanded="true" />
+            <element signature="e#71313#71334#0" expanded="true" />
+            <element signature="e#71426#71449#0" expanded="true" />
+            <element signature="e#72083#72104#0" expanded="true" />
+            <element signature="e#72187#72193#0" expanded="true" />
+            <element signature="e#72193#72199#0" expanded="true" />
+            <element signature="e#72384#72405#0" expanded="true" />
+            <element signature="e#72727#72748#0" expanded="true" />
+            <element signature="e#72939#72946#1" expanded="true" />
+            <element signature="e#72998#73016#0" expanded="true" />
+            <element signature="e#73152#73186#0" expanded="true" />
+            <element signature="e#73410#73461#0" expanded="true" />
+            <element signature="e#73533#73554#0" expanded="true" />
+            <element signature="e#73805#73826#0" expanded="true" />
+            <element signature="e#74021#74041#0" expanded="true" />
+            <element signature="e#75646#75667#0" expanded="true" />
+            <element signature="e#75735#75741#0" expanded="true" />
+            <element signature="e#75898#75902#0" expanded="true" />
+            <element signature="e#77632#77653#0" expanded="true" />
+            <element signature="e#77874#77895#0" expanded="true" />
+            <element signature="e#77942#78061#0" expanded="true" />
+            <element signature="e#78218#78239#0" expanded="true" />
+            <element signature="e#78495#78516#0" expanded="true" />
+            <element signature="e#78829#78850#0" expanded="true" />
+            <element signature="e#79077#79098#0" expanded="true" />
+            <element signature="e#79204#79210#0" expanded="true" />
+            <element signature="e#79210#79216#0" expanded="true" />
+            <element signature="e#79216#79222#0" expanded="true" />
+            <element signature="e#79286#79292#1" expanded="true" />
+            <element signature="e#79481#79502#0" expanded="true" />
+            <element signature="e#79788#79809#0" expanded="true" />
+            <element signature="e#80200#80221#0" expanded="true" />
+            <element signature="e#80586#80607#0" expanded="true" />
+            <element signature="e#80879#80900#0" expanded="true" />
+            <element signature="e#81749#81770#0" expanded="true" />
+            <element signature="e#82025#82046#0" expanded="true" />
+            <element signature="e#82278#82299#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#textarea#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#5;n#ul#0;n#div#0;n#textarea#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#textarea#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#15;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#16;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#17;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#91128#91134#0" expanded="true" />
+            <element signature="e#91135#91141#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#18;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#19;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#20;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#21;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#22;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#23;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#92635#92641#1" expanded="true" />
+            <element signature="e#93218#93224#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#24;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#96134#96140#1" expanded="true" />
+            <element signature="e#96668#96674#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#25;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#99792#99798#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#26;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#102971#102977#0" expanded="true" />
+            <element signature="e#104012#104018#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#27;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#106211#106217#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#28;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#108648#108654#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#ul#0;n#textarea#28;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#109987#109991#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#29;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#110461#110467#0" expanded="true" />
+            <element signature="n#style#0;n#textarea#30;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#textarea#30;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#31;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json.py" />
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/requests/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="896" selection-start-line="896" selection-end-line="896" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="42" selection-start-line="5" selection-start-column="1" selection-end-line="15" selection-end-column="67" />
+          <folding>
+            <element signature="e#103#118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/bs4/element.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="1681" column="8" selection-start-line="1681" selection-start-column="8" selection-end-line="1681" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../alien_invasion/alien.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1]两数之和.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[1]两数之和.md" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/liang-shu-xiang-jia-by-leetcode.md" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[3]无重复字符的最长子串.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2]两数相加.py" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.groovy">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="925" selection-start-line="925" selection-end-line="925" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/main.py" />
+    <entry file="file://$PROJECT_DIR$/path.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainWindow.py" />
+    <entry file="file://$PROJECT_DIR$/音乐下载器.py" />
+    <entry file="file://$PROJECT_DIR$/鼓声分离.py" />
+    <entry file="file://$PROJECT_DIR$/main.py" />
+    <entry file="file://$PROJECT_DIR$/1.py" />
+    <entry file="file://$PROJECT_DIR$/freemp3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/p1.py" />
+    <entry file="file://$PROJECT_DIR$/音乐下载器1.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2945">
+          <caret line="95" selection-start-line="95" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/音乐下载器/音乐下载器.exe">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/音乐下载器beta1.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
