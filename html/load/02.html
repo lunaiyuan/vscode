@@ -1,0 +1,61 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-24 16:51:09
+ * @LastEditTime: 2020-11-24 16:55:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \.git\vscode\html\load\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*横向展示关键是添加:  overflow-x:hidden,避免出现异常*/
+        
+        #kwicks {
+            width: 590px;
+            overflow-x: hidden;
+        }
+        
+        #kwicks:hover li a {
+            width: 100px;
+        }
+        
+        #kwicks li {
+            float: left;
+            overflow-x: hidden;
+            display: block;
+        }
+        /*鼠标放上去时：宽度加大，具体过程由动画实现*/
+        
+        #kwicks li:hover a {
+            width: 285px !important;
+        }
+        /* 实现宽度变大的动态过程*/
+        
+        #kwicks li a {
+            display: block;
+            text-indent: -9999px;
+            width: 134px;
+            height: 143px;
+            transition-property: width;
+            transition-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="kwicks">
+        <li><a class="john" href="http://en.wikipedia.org/wiki/John_lennon" title="John Lennon">John Lennon</a></li>
+        <li><a class="paul" href="http://en.wikipedia.org/wiki/Paul_mccartney" title="Paul McCartney">Paul McCartney</a></li>
+        <li><a class="george" href="http://en.wikipedia.org/wiki/George_harrison" title="George Harrison">George Harrison</a></li>
+        <li><a class="ringo" href="http://en.wikipedia.org/wiki/Ringo_starr" title="Ringo Starr">Ringo Starr</a></li>
+    </ul>
+</body>
+
+</html>

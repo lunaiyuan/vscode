@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-01 13:45:05
+ * @LastEditTime: 2020-12-01 13:54:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \.git\vscode\js\day02\if2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var h = prompt("身高：")
+        var m = prompt("财富：")
+        var s = prompt("帅气：")
+        var res = 0
+        h >= 180 ? res++ : res + 0
+        m >= 1000 ? res++ : res + 0
+        s >= 500 ? res++ : res + 0
+        if (res == 0) {
+            console.log("0")
+        } else if (res == 1) {
+            console.log(1)
+        } else if (res == 2) {
+            console.log(2)
+        } else {
+            console.log(3)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

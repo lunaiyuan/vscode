@@ -1,0 +1,1267 @@
+<script>
+	$(function(){
+		/**
+		 * [ChampionStatistics-Detail-Matchup] Visit
+		 */
+		$.OP.GG.tracker.championStatistics.detail.matchUp.visit('Direct');
+
+		/**
+		 * [ChampionStatistics-Detail-Matchup] ChGraph
+		 */
+		$('.champion-matchup-graph').on('click', '.champion-matchup-graph-header-item', function(){
+			var $item = $(this),
+				type = $item.data('type');
+			$.OP.GG.tracker.championStatistics.detail.matchUp.changeGraph(type);
+		});
+	});
+</script>
+<script>
+	$(function(){
+		var doubleChosungArray = {
+			'ㄳ': 'ㄱㅅ',
+			'ㄵ': 'ㄴㅈ',
+			'ㄶ': 'ㄴㅎ',
+			'ㄺ': 'ㄹㄱ',
+			'ㄻ': 'ㄹㅁ',
+			'ㄼ': 'ㄹㅂ',
+			'ㄽ': 'ㄹㅅ',
+			'ㄾ': 'ㄹㅌ',
+			'ㄿ': 'ㄹㅍ',
+			'ㅀ': 'ㄹㅎ',
+			'ㅄ': 'ㅂㅅ'
+		};
+
+		var searchKeyword = function(){
+			var keyword = $(".champion-matchup-search input").val().toLowerCase();
+
+			for (var doubleChosung in doubleChosungArray) {
+				if (doubleChosungArray.hasOwnProperty(doubleChosung)) {
+					var spritedChosung = doubleChosungArray[doubleChosung];
+					keyword = keyword.replaceAll(doubleChosung, spritedChosung);
+				}
+			}
+
+			var allChampion = $(".champion-matchup-champion-list__item");
+
+			allChampion.each(function(i, o){
+				var championName = $(o).data('champion-name'),
+					championKey = $(o).data('champion-key'),
+					championNameChosung = $(o).data('champion-name-chosung');
+				if ((championName.indexOf(keyword) >= 0 || championKey.indexOf(keyword) >= 0 || (championNameChosung && championNameChosung.indexOf(keyword) >= 0))) {
+					$(o).show();
+				} else {
+					$(o).hide();
+				}
+			});
+		};
+
+		$(".champion-matchup-search input").on('keyup input', function(){
+			searchKeyword();
+		});
+
+		$(".champion-matchup-champion-list__item").on('click', function(evt){
+			var $button = $(evt.target).closest('.champion-matchup-champion-list__item'),
+				activeClass = 'champion-matchup-champion-list__item--active',
+				championId = 518,
+				targetChampionId = $button.data('champion-id'),
+				position = "mid",
+				setHTML = function(html){
+					$(".l-champion-matchup-content").html(html);
+				};
+			$(".champion-matchup-champion-list__item").removeClass('champion-matchup-champion-list__item--active');
+			$button.addClass('champion-matchup-champion-list__item--active');
+			$(".l-champion-matchup-content").startLoading({
+				minHeight: 800,
+				className: 'black'
+			});
+			$.OP.GG.ajax.getHTML({
+				url: '/champion/ajax/statistics/counterChampion/',
+				method: 'get',
+				data: {
+					championId: championId,
+					targetChampionId: targetChampionId,
+					position: position
+				},
+				callback: {
+					onHTML: function(html){
+						setHTML(html);
+					},
+					onError: function(error){
+						alert(error);
+						$(".l-champion-matchup-content").stopLoading();
+					},
+					onFinal: function(){
+
+					}
+				}
+			});
+		});
+
+		/**
+		 * [ChampionStatistics-Detail-Matchup] ChVSChamp
+		 */
+		$(".champion-matchup-champion-list").on('click', '.champion-matchup-champion-list__item', function(){
+			var filter = '';
+			if ($('.champion-matchup-search input').val()) {
+				filter = 'Search';
+			} else {
+				filter = $('.champion-matchup-sort__button--down, .champion-matchup-sort__button--up').data('sort-type');
+			}
+			$.OP.GG.tracker.championStatistics.detail.matchUp.changeVSChampion(filter);
+		});
+	});
+</script>
+<div class="l-champion-matchup">
+	<div class="l-champion-matchup-content">
+			<div class="champion-matchup-header">
+		<div class="champion-matchup-champion">
+			<img src="//opgg-static.akamaized.net/images/lol/champion/Neeko.png?image=q_auto&amp;v=1591083841" alt="万花通灵" class="champion-matchup-champion__image">
+			<div class="champion-matchup-champion__name">万花通灵</div>
+			<div class="champion-matchup-champion__winrate">50.69%</div>
+		</div>
+		<div class="champion-matchup-versus">
+			<div class="champion-matchup-versus__title">
+				<img src="//opgg-static.akamaized.net/images/site/champion/matchup-title.png" alt="">
+			</div>
+			<div class="champion-matchup-versus__arrow">
+									<img src="//opgg-static.akamaized.net/images/site/champion/l-arrow-left.png" alt="">
+							</div>
+			<div class="champion-matchup-versus__text">
+				<img src="//opgg-static.akamaized.net/images/site/champion/vs-title.png" alt="">
+			</div>
+		</div>
+		<div class="champion-matchup-champion">
+			<a href="/champion/twistedfate/statistics/mid/matchup?targetChampionId=518">
+				<img src="//opgg-static.akamaized.net/images/lol/champion/TwistedFate.png?image=q_auto&amp;v=1591083841" alt="卡牌大师" class="champion-matchup-champion__image">
+				<div class="champion-matchup-champion__name">卡牌大师</div>
+			</a>
+			<div class="champion-matchup-champion__winrate">49.31%</div>
+		</div>
+	</div>
+	<div class="champion-matchup-content">
+		<table class="champion-matchup-table">
+			<colgroup>
+				<col width="240">
+								<col>
+								<col width="240">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>对决平均数据</th>
+										<th></th>
+										<th>对决平均数据</th>
+				</tr>
+			</thead>
+			<tbody>
+
+	<tr>
+		<td class="champion-matchup-data champion-matchup-data--win">
+			73.52%		</td>
+																							<td class="tip" title="对抗指定英雄的击杀死亡比">对抗指定英雄的击杀死亡比</td>
+																							<td class="champion-matchup-data ">
+			26.48%		</td>
+	</tr>
+
+	<tr>
+		<td class="champion-matchup-data champion-matchup-data--win">
+			2.66 : 1		</td>
+																							<td class="" >KDA</td>
+																							<td class="champion-matchup-data ">
+			2.48 : 1		</td>
+	</tr>
+
+
+
+
+	<tr>
+		<td class="champion-matchup-data champion-matchup-data--win">
+			49.3%		</td>
+																							<td class="" >击杀贡献率</td>
+																							<td class="champion-matchup-data ">
+			48.0%		</td>
+	</tr>
+
+	<tr>
+		<td class="champion-matchup-data champion-matchup-data--win">
+			19,689		</td>
+																							<td class="" >对英雄造成的伤害</td>
+																							<td class="champion-matchup-data ">
+			16,808		</td>
+	</tr>
+
+																			<tr>
+						<td class="champion-matchup-data ">
+							18&#039;36&quot;
+						</td>
+																																																<td class="" >线上摧毁第一座防御塔时间</td>
+																																																<td class="champion-matchup-data champion-matchup-data--win">
+							18&#039;02&quot;
+						</td>
+					</tr>
+
+	<tr>
+		<td class="champion-matchup-data champion-matchup-data--win">
+			50.69%		</td>
+																							<td class="tip" title="对抗指定英雄胜率">胜率</td>
+																							<td class="champion-matchup-data ">
+			49.31%		</td>
+	</tr>
+
+
+
+
+
+
+	<tr>
+		<td class="champion-matchup-data ">
+			48.77%		</td>
+																							<td class="" >单胜率</td>
+																							<td class="champion-matchup-data champion-matchup-data--win">
+			50.62%		</td>
+	</tr>
+
+	<tr>
+		<td class="champion-matchup-data ">
+			0.83%		</td>
+																							<td class="" >单登场率</td>
+																							<td class="champion-matchup-data champion-matchup-data--win">
+			13.67%		</td>
+	</tr>
+
+
+	<tr>
+		<td class="champion-matchup-data ">
+			0.20%		</td>
+																							<td class="" >禁用率</td>
+																							<td class="champion-matchup-data champion-matchup-data--win">
+			10.72%		</td>
+	</tr>
+							</tbody>
+		</table>
+		<div class="champion-box champion-matchup-graph tabWrap">
+			<div class="champion-matchup-graph-header tabHeaders">
+				<div class="tabHeader active champion-matchup-graph-header-item" data-tab-show-class="matchup_graph--gold" data-type="Gold">
+					<a href="#">每分钟获得的金币</a>
+				</div>
+									<div class="tabHeader champion-matchup-graph-header-item" data-tab-show-class="matchup_graph--cs" data-type="CS">
+						<a href="#">每分钟获得的CS</a>
+					</div>
+								<div class="tabHeader champion-matchup-graph-header-item" data-tab-show-class="matchup_graph--xp" data-type="XP">
+					<a href="#">每分钟获得的经验值</a>
+				</div>
+			</div>
+			<div class="champion-matchup-graph-content tabItems">
+				<div class="tabItem matchup_graph--gold">
+					<div id="GoldDiffGraph" style="display: inline-block; height: 220px; width: 677px;"></div>
+				</div>
+				<div class="tabItem matchup_graph--xp">
+					<div id="XPDiffGraph" style="display: inline-block; height: 220px; width: 677px;"></div>
+				</div>
+				<div class="tabItem matchup_graph--cs">
+					<div id="CSDiffGraph" style="display: inline-block; height: 220px; width: 677px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+						$.OP.GG.champion.MatchUp.Graph('GoldDiffGraph',
+				{
+					yAxis: {
+						max: 429.702673,
+						min: 290.413960,
+						tickInterval: 50
+					},
+					series: [
+						{
+							name: '卡牌大师',
+							color: '#cce6cb',
+							data: [
+								313
+								, 430
+								, 418
+								, 411
+							],
+							marker: {
+								lineColor: '#56c16a'
+							}
+						}, {
+							name: '万花通灵',
+							color: '#f7deff',
+							data: [
+								290
+								, 408
+								, 381
+								, 382
+							],
+							marker: {
+								lineColor: '#ad74ff'
+							}
+						}]
+				}
+			);
+									$.OP.GG.champion.MatchUp.Graph('XPDiffGraph',
+				{
+					yAxis: {
+						max: 513.447178,
+						min: 443.357327
+					},
+					series: [
+						{
+							name: '卡牌大师',
+							color: '#cce6cb',
+							data: [
+								443
+								, 491
+								, 504
+								, 513
+							],
+							marker: {
+								lineColor: '#56c16a'
+							}
+						}, {
+							name: '万花通灵',
+							color: '#f7deff',
+							data: [
+								451
+								, 475
+								, 461
+								, 509
+							],
+							marker: {
+								lineColor: '#ad74ff'
+							}
+						}]
+				}
+			);
+									$.OP.GG.champion.MatchUp.Graph('CSDiffGraph',
+				{
+					yAxis: {
+						max: 6.738218,
+						min: 3.839756
+					},
+					series: [{
+						name: '卡牌大师',
+						color: '#cce6cb',
+						data: [
+							6.7
+							, 6.2
+							, 5.0
+							, 4.6
+						],
+						marker: {
+							lineColor: '#56c16a'
+						}
+					}, {
+						name: '万花通灵',
+						color: '#f7deff',
+						data: [
+							6.7
+							, 6.2
+							, 4.2
+							, 3.8
+						],
+						marker: {
+							lineColor: '#ad74ff'
+						}
+					}]
+				}
+			);
+					});
+	</script>
+	</div>
+	<div class="l-champion-matchup-side">
+		<div class="champion-matchup-search">
+			<form action="" onsubmit="return false;">
+				<input type="text" placeholder="搜索英雄">
+				<button onclick="$('.champion-matchup-search input').trigger('keyup'); return false;">
+					<img src="//opgg-static.akamaized.net/images/site/champion/search-icon.png" alt=""></button>
+			</form>
+		</div>
+		<div class="champion-matchup-sort">
+			<div class="champion-matchup-sort__label">#</div>
+			<button class="champion-matchup-sort__button champion-matchup-sort__button--winrate" data-sort-type="winrate" onclick="$.OP.GG.champion.MatchUp.selectChampion.sort(this);">
+				<span>胜率</span> <i></i>
+				<img class="none" src="//opgg-static.akamaized.net/images/site/champion/sort-blet.png" alt="">
+				<img class="up" src="//opgg-static.akamaized.net/images/site/champion/sort-blet-up.png" alt="">
+				<img class="down" src="//opgg-static.akamaized.net/images/site/champion/sort-blet-down.png" alt="">
+			</button>
+			<button class="champion-matchup-sort__button champion-matchup-sort__button--totalplayed champion-matchup-sort__button--down" data-sort-type="totalplayed" onclick="$.OP.GG.champion.MatchUp.selectChampion.sort(this);">
+				<span>游戏次数</span> <i></i>
+				<img class="none" src="//opgg-static.akamaized.net/images/site/champion/sort-blet.png" alt="">
+				<img class="up" src="//opgg-static.akamaized.net/images/site/champion/sort-blet-up.png" alt="">
+				<img class="down" src="//opgg-static.akamaized.net/images/site/champion/sort-blet-down.png" alt="">
+			</button>
+		</div>
+		<div class="champion-matchup-champion-list">
+																<div class="champion-matchup-champion-list__item  champion-matchup-champion-list__item--active" data-champion-id="4" data-champion-name="卡牌大师" data-champion-key="twistedfate" data-value-winrate="0.5069"  data-value-totalplayed="1010">
+						<div class="champion-matchup-list__rank">1</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-123"></i> <span>卡牌大师</span>
+							<span class="champion-matchup-list__winrate">
+								50.69%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>6.00%</span>
+							<small>1,010</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="238" data-champion-name="影流之主" data-champion-key="zed" data-value-winrate="0.5020"  data-value-totalplayed="980">
+						<div class="champion-matchup-list__rank">2</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-143"></i> <span>影流之主</span>
+							<span class="champion-matchup-list__winrate">
+								50.2%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>5.82%</span>
+							<small>980</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="157" data-champion-name="疾风剑豪" data-champion-key="yasuo" data-value-winrate="0.5070"  data-value-totalplayed="927">
+						<div class="champion-matchup-list__rank">3</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-139"></i> <span>疾风剑豪</span>
+							<span class="champion-matchup-list__winrate">
+								50.7%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>5.51%</span>
+							<small>927</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="517" data-champion-name="解脱者" data-champion-key="sylas" data-value-winrate="0.5136"  data-value-totalplayed="806">
+						<div class="champion-matchup-list__rank">4</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-112"></i> <span>解脱者</span>
+							<span class="champion-matchup-list__winrate">
+								51.36%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>4.79%</span>
+							<small>806</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="103" data-champion-name="九尾妖狐" data-champion-key="ahri" data-value-winrate="0.4812"  data-value-totalplayed="665">
+						<div class="champion-matchup-list__rank">5</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-1"></i> <span>九尾妖狐</span>
+							<span class="champion-matchup-list__winrate">
+								48.12%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.95%</span>
+							<small>665</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="7" data-champion-name="诡术妖姬" data-champion-key="leblanc" data-value-winrate="0.5319"  data-value-totalplayed="658">
+						<div class="champion-matchup-list__rank">6</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-61"></i> <span>诡术妖姬</span>
+							<span class="champion-matchup-list__winrate">
+								53.19%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.91%</span>
+							<small>658</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="91" data-champion-name="刀锋之影" data-champion-key="talon" data-value-winrate="0.5070"  data-value-totalplayed="570">
+						<div class="champion-matchup-list__rank">7</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-116"></i> <span>刀锋之影</span>
+							<span class="champion-matchup-list__winrate">
+								50.7%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.38%</span>
+							<small>570</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="142" data-champion-name="暮光星灵" data-champion-key="zoe" data-value-winrate="0.4688"  data-value-totalplayed="561">
+						<div class="champion-matchup-list__rank">8</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-146"></i> <span>暮光星灵</span>
+							<span class="champion-matchup-list__winrate">
+								46.88%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.33%</span>
+							<small>561</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="105" data-champion-name="潮汐海灵" data-champion-key="fizz" data-value-winrate="0.4964"  data-value-totalplayed="548">
+						<div class="champion-matchup-list__rank">9</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-30"></i> <span>潮汐海灵</span>
+							<span class="champion-matchup-list__winrate">
+								49.64%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.25%</span>
+							<small>548</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="3" data-champion-name="正义巨像" data-champion-key="galio" data-value-winrate="0.4982"  data-value-totalplayed="546">
+						<div class="champion-matchup-list__rank">10</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-31"></i> <span>正义巨像</span>
+							<span class="champion-matchup-list__winrate">
+								49.82%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.24%</span>
+							<small>546</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="39" data-champion-name="刀锋舞者" data-champion-key="irelia" data-value-winrate="0.5615"  data-value-totalplayed="520">
+						<div class="champion-matchup-list__rank">11</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-40"></i> <span>刀锋舞者</span>
+							<span class="champion-matchup-list__winrate">
+								56.15%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.09%</span>
+							<small>520</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="84" data-champion-name="离群之刺" data-champion-key="akali" data-value-winrate="0.5315"  data-value-totalplayed="508">
+						<div class="champion-matchup-list__rank">12</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-2"></i> <span>离群之刺</span>
+							<span class="champion-matchup-list__winrate">
+								53.15%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>3.02%</span>
+							<small>508</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="55" data-champion-name="不祥之刃" data-champion-key="katarina" data-value-winrate="0.4653"  data-value-totalplayed="490">
+						<div class="champion-matchup-list__rank">13</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-53"></i> <span>不祥之刃</span>
+							<span class="champion-matchup-list__winrate">
+								46.53%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.91%</span>
+							<small>490</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="61" data-champion-name="发条魔灵" data-champion-key="orianna" data-value-winrate="0.5410"  data-value-totalplayed="488">
+						<div class="champion-matchup-list__rank">14</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-84"></i> <span>发条魔灵</span>
+							<span class="champion-matchup-list__winrate">
+								54.1%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.90%</span>
+							<small>488</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="134" data-champion-name="暗黑元首" data-champion-key="syndra" data-value-winrate="0.5246"  data-value-totalplayed="488">
+						<div class="champion-matchup-list__rank">15</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-113"></i> <span>暗黑元首</span>
+							<span class="champion-matchup-list__winrate">
+								52.46%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.90%</span>
+							<small>488</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="38" data-champion-name="虚空行者" data-champion-key="kassadin" data-value-winrate="0.5022"  data-value-totalplayed="462">
+						<div class="champion-matchup-list__rank">16</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-52"></i> <span>虚空行者</span>
+							<span class="champion-matchup-list__winrate">
+								50.22%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.74%</span>
+							<small>462</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="245" data-champion-name="时间刺客" data-champion-key="ekko" data-value-winrate="0.4786"  data-value-totalplayed="443">
+						<div class="champion-matchup-list__rank">17</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-24"></i> <span>时间刺客</span>
+							<span class="champion-matchup-list__winrate">
+								47.86%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.63%</span>
+							<small>443</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="131" data-champion-name="皎月女神" data-champion-key="diana" data-value-winrate="0.4898"  data-value-totalplayed="443">
+						<div class="champion-matchup-list__rank">18</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-21"></i> <span>皎月女神</span>
+							<span class="champion-matchup-list__winrate">
+								48.98%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.63%</span>
+							<small>443</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="80" data-champion-name="不屈之枪" data-champion-key="pantheon" data-value-winrate="0.5561"  data-value-totalplayed="428">
+						<div class="champion-matchup-list__rank">19</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-86"></i> <span>不屈之枪</span>
+							<span class="champion-matchup-list__winrate">
+								55.61%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.54%</span>
+							<small>428</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="69" data-champion-name="魔蛇之拥" data-champion-key="cassiopeia" data-value-winrate="0.4604"  data-value-totalplayed="417">
+						<div class="champion-matchup-list__rank">20</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-17"></i> <span>魔蛇之拥</span>
+							<span class="champion-matchup-list__winrate">
+								46.04%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.48%</span>
+							<small>417</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="8" data-champion-name="猩红收割者" data-champion-key="vladimir" data-value-winrate="0.4649"  data-value-totalplayed="342">
+						<div class="champion-matchup-list__rank">21</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-133"></i> <span>猩红收割者</span>
+							<span class="champion-matchup-list__winrate">
+								46.49%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>2.03%</span>
+							<small>342</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="236" data-champion-name="圣枪游侠" data-champion-key="lucian" data-value-winrate="0.4968"  data-value-totalplayed="314">
+						<div class="champion-matchup-list__rank">22</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-65"></i> <span>圣枪游侠</span>
+							<span class="champion-matchup-list__winrate">
+								49.68%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.86%</span>
+							<small>314</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="101" data-champion-name="远古巫灵" data-champion-key="xerath" data-value-winrate="0.4753"  data-value-totalplayed="263">
+						<div class="champion-matchup-list__rank">23</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-137"></i> <span>远古巫灵</span>
+							<span class="champion-matchup-list__winrate">
+								47.53%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.56%</span>
+							<small>263</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="99" data-champion-name="光辉女郎" data-champion-key="lux" data-value-winrate="0.4812"  data-value-totalplayed="239">
+						<div class="champion-matchup-list__rank">24</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-67"></i> <span>光辉女郎</span>
+							<span class="champion-matchup-list__winrate">
+								48.12%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.42%</span>
+							<small>239</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="20" data-champion-name="雪原双子" data-champion-key="nunu" data-value-winrate="0.5481"  data-value-totalplayed="239">
+						<div class="champion-matchup-list__rank">25</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-82"></i> <span>雪原双子</span>
+							<span class="champion-matchup-list__winrate">
+								54.81%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.42%</span>
+							<small>239</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="112" data-champion-name="机械先驱" data-champion-key="viktor" data-value-winrate="0.4454"  data-value-totalplayed="229">
+						<div class="champion-matchup-list__rank">26</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-132"></i> <span>机械先驱</span>
+							<span class="champion-matchup-list__winrate">
+								44.54%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.36%</span>
+							<small>229</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="56" data-champion-name="永恒梦魇" data-champion-key="nocturne" data-value-winrate="0.5182"  data-value-totalplayed="220">
+						<div class="champion-matchup-list__rank">27</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-81"></i> <span>永恒梦魇</span>
+							<span class="champion-matchup-list__winrate">
+								51.82%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.31%</span>
+							<small>220</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="13" data-champion-name="符文法师" data-champion-key="ryze" data-value-winrate="0.5429"  data-value-totalplayed="210">
+						<div class="champion-matchup-list__rank">28</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-98"></i> <span>符文法师</span>
+							<span class="champion-matchup-list__winrate">
+								54.29%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.25%</span>
+							<small>210</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="268" data-champion-name="沙漠皇帝" data-champion-key="azir" data-value-winrate="0.5735"  data-value-totalplayed="204">
+						<div class="champion-matchup-list__rank">29</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-10"></i> <span>沙漠皇帝</span>
+							<span class="champion-matchup-list__winrate">
+								57.35%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.21%</span>
+							<small>204</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="42" data-champion-name="英勇投弹手" data-champion-key="corki" data-value-winrate="0.5181"  data-value-totalplayed="193">
+						<div class="champion-matchup-list__rank">30</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-19"></i> <span>英勇投弹手</span>
+							<span class="champion-matchup-list__winrate">
+								51.81%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.15%</span>
+							<small>193</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="90" data-champion-name="虚空先知" data-champion-key="malzahar" data-value-winrate="0.4895"  data-value-totalplayed="190">
+						<div class="champion-matchup-list__rank">31</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-69"></i> <span>虚空先知</span>
+							<span class="champion-matchup-list__winrate">
+								48.95%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.13%</span>
+							<small>190</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="246" data-champion-name="元素女皇" data-champion-key="qiyana" data-value-winrate="0.4892"  data-value-totalplayed="186">
+						<div class="champion-matchup-list__rank">32</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-89"></i> <span>元素女皇</span>
+							<span class="champion-matchup-list__winrate">
+								48.92%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>1.10%</span>
+							<small>186</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="43" data-champion-name="天启者" data-champion-key="karma" data-value-winrate="0.5061"  data-value-totalplayed="164">
+						<div class="champion-matchup-list__rank">33</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-50"></i> <span>天启者</span>
+							<span class="champion-matchup-list__winrate">
+								50.61%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.97%</span>
+							<small>164</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="68" data-champion-name="机械公敌" data-champion-key="rumble" data-value-winrate="0.5405"  data-value-totalplayed="148">
+						<div class="champion-matchup-list__rank">34</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-97"></i> <span>机械公敌</span>
+							<span class="champion-matchup-list__winrate">
+								54.05%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.88%</span>
+							<small>148</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="127" data-champion-name="冰霜女巫" data-champion-key="lissandra" data-value-winrate="0.4898"  data-value-totalplayed="147">
+						<div class="champion-matchup-list__rank">35</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-64"></i> <span>冰霜女巫</span>
+							<span class="champion-matchup-list__winrate">
+								48.98%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.87%</span>
+							<small>147</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="34" data-champion-name="冰晶凤凰" data-champion-key="anivia" data-value-winrate="0.4366"  data-value-totalplayed="142">
+						<div class="champion-matchup-list__rank">36</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-5"></i> <span>冰晶凤凰</span>
+							<span class="champion-matchup-list__winrate">
+								43.66%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.84%</span>
+							<small>142</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="1" data-champion-name="黑暗之女" data-champion-key="annie" data-value-winrate="0.4632"  data-value-totalplayed="136">
+						<div class="champion-matchup-list__rank">37</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-6"></i> <span>黑暗之女</span>
+							<span class="champion-matchup-list__winrate">
+								46.32%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.81%</span>
+							<small>136</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="45" data-champion-name="邪恶小法师" data-champion-key="veigar" data-value-winrate="0.4254"  data-value-totalplayed="134">
+						<div class="champion-matchup-list__rank">38</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-129"></i> <span>邪恶小法师</span>
+							<span class="champion-matchup-list__winrate">
+								42.54%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.80%</span>
+							<small>134</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="115" data-champion-name="爆破鬼才" data-champion-key="ziggs" data-value-winrate="0.4677"  data-value-totalplayed="124">
+						<div class="champion-matchup-list__rank">39</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-144"></i> <span>爆破鬼才</span>
+							<span class="champion-matchup-list__winrate">
+								46.77%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.74%</span>
+							<small>124</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="54" data-champion-name="熔岩巨兽" data-champion-key="malphite" data-value-winrate="0.5167"  data-value-totalplayed="120">
+						<div class="champion-matchup-list__rank">40</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-68"></i> <span>熔岩巨兽</span>
+							<span class="champion-matchup-list__winrate">
+								51.67%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.71%</span>
+							<small>120</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="126" data-champion-name="未来守护者" data-champion-key="jayce" data-value-winrate="0.5603"  data-value-totalplayed="116">
+						<div class="champion-matchup-list__rank">41</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-45"></i> <span>未来守护者</span>
+							<span class="champion-matchup-list__winrate">
+								56.03%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.69%</span>
+							<small>116</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="555" data-champion-name="血港鬼影" data-champion-key="pyke" data-value-winrate="0.4685"  data-value-totalplayed="111">
+						<div class="champion-matchup-list__rank">42</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-88"></i> <span>血港鬼影</span>
+							<span class="champion-matchup-list__winrate">
+								46.85%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.66%</span>
+							<small>111</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="266" data-champion-name="暗裔剑魔" data-champion-key="aatrox" data-value-winrate="0.5114"  data-value-totalplayed="88">
+						<div class="champion-matchup-list__rank">43</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-0"></i> <span>暗裔剑魔</span>
+							<span class="champion-matchup-list__winrate">
+								51.14%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.52%</span>
+							<small>88</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="136" data-champion-name="铸星龙王" data-champion-key="aurelionsol" data-value-winrate="0.3704"  data-value-totalplayed="81">
+						<div class="champion-matchup-list__rank">44</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-9"></i> <span>铸星龙王</span>
+							<span class="champion-matchup-list__winrate">
+								37.04%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.48%</span>
+							<small>81</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="86" data-champion-name="德玛西亚之力" data-champion-key="garen" data-value-winrate="0.4872"  data-value-totalplayed="78">
+						<div class="champion-matchup-list__rank">45</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-33"></i> <span>德玛西亚之力</span>
+							<span class="champion-matchup-list__winrate">
+								48.72%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.46%</span>
+							<small>78</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="25" data-champion-name="堕落天使" data-champion-key="morgana" data-value-winrate="0.4675"  data-value-totalplayed="77">
+						<div class="champion-matchup-list__rank">46</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-75"></i> <span>堕落天使</span>
+							<span class="champion-matchup-list__winrate">
+								46.75%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.46%</span>
+							<small>77</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="161" data-champion-name="虚空之眼" data-champion-key="velkoz" data-value-winrate="0.5541"  data-value-totalplayed="74">
+						<div class="champion-matchup-list__rank">47</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-130"></i> <span>虚空之眼</span>
+							<span class="champion-matchup-list__winrate">
+								55.41%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.44%</span>
+							<small>74</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="58" data-champion-name="荒漠屠夫" data-champion-key="renekton" data-value-winrate="0.4714"  data-value-totalplayed="70">
+						<div class="champion-matchup-list__rank">48</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-94"></i> <span>荒漠屠夫</span>
+							<span class="champion-matchup-list__winrate">
+								47.14%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.42%</span>
+							<small>70</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="875" data-champion-name="腕豪" data-champion-key="sett" data-value-winrate="0.6176"  data-value-totalplayed="68">
+						<div class="champion-matchup-list__rank">49</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-101"></i> <span>腕豪</span>
+							<span class="champion-matchup-list__winrate">
+								61.76%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.40%</span>
+							<small>68</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																															<div class="champion-matchup-champion-list__item " data-champion-id="516" data-champion-name="山隐之焰" data-champion-key="ornn" data-value-winrate="0.5273"  data-value-totalplayed="55">
+						<div class="champion-matchup-list__rank">51</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-85"></i> <span>山隐之焰</span>
+							<span class="champion-matchup-list__winrate">
+								52.73%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.33%</span>
+							<small>55</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+																				<div class="champion-matchup-champion-list__item " data-champion-id="26" data-champion-name="时光守护者" data-champion-key="zilean" data-value-winrate="0.4815"  data-value-totalplayed="54">
+						<div class="champion-matchup-list__rank">52</div>
+						<div class="champion-matchup-list__champion">
+							<i class="__sprite __spc32 __spc32-145"></i> <span>时光守护者</span>
+							<span class="champion-matchup-list__winrate">
+								48.15%
+							</span>
+						</div>
+						<div class="champion-matchup-list__totalplayed">
+							<span>0.32%</span>
+							<small>54</small>
+						</div>
+						<div class="champion-matchup-list__icon">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-over.png" class="on" alt="">
+							<img src="//opgg-static.akamaized.net/images/site/champion/check-btn-none.png" class="off" alt="">
+						</div>
+					</div>
+									</div>
+	</div>
+</div>
+
