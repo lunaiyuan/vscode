@@ -7,9 +7,9 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication,QMainWindow
-from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit,
-    QInputDialog, QApplication)
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit, QInputDialog,
+                             QApplication)
 import sys
 import requests
 from threading import Thread
@@ -19,13 +19,12 @@ import time
 
 
 class Ui_musicdowload(object):
-
     def update_path(self):
-        try :
-            with open('path.txt','r') as t:
+        try:
+            with open('path.txt', 'r') as t:
 
                 self.lineEdit.setText(t.readline())
-        except :
+        except:
             pass
 
     def setupUi(self, musicdowload):
@@ -47,7 +46,6 @@ class Ui_musicdowload(object):
         self.ButtonSearch.setGeometry(QtCore.QRect(540, 10, 81, 31))
         self.ButtonSearch.setObjectName("ButtonSearch")
         self.ButtonSearch.clicked[bool].connect(self.search)
-
 
         self.textanswer = QtWidgets.QTextBrowser(self.centralwidget)
         self.textanswer.setGeometry(QtCore.QRect(80, 80, 451, 151))
@@ -87,6 +85,8 @@ class Ui_musicdowload(object):
         self.type.setObjectName("type")
         self.type.addItem("")
         self.type.addItem("")
+        self.type.addItem("")
+        self.type.addItem("")
         musicdowload.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(musicdowload)
         self.statusbar.setObjectName("statusbar")
@@ -102,19 +102,15 @@ class Ui_musicdowload(object):
         url = 'https://music.liuzhijin.cn/'
         types = self.type.currentIndex()
         # print(types)
-        lists = ['qq','kugou']
+        lists = ['qq', 'kugou', 'netease', '1ting']
         tt = lists[types]
         #print(tt)
         headers = {
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+            'user-agent':
+            'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
             'x-requested-with': 'XMLHttpRequest'
         }
-        data = {
-            'input': name,
-            'filter': 'name',
-            'type': tt,
-            'page': '1'
-        }
+        data = {'input': name, 'filter': 'name', 'type': tt, 'page': '1'}
         response = requests.post(url=url, headers=headers, data=data)
         self.urls = []
         songs = []
@@ -133,13 +129,21 @@ class Ui_musicdowload(object):
     def retranslateUi(self, musicdowload):
         _translate = QtCore.QCoreApplication.translate
         musicdowload.setWindowTitle(_translate("musicdowload", "音乐下载器"))
-        self.ltit.setText(_translate("musicdowload", "<html><head/><body><p><span style=\" font-size:18pt;\">输入音乐名称</span></p></body></html>"))
+        self.ltit.setText(
+            _translate(
+                "musicdowload",
+                "<html><head/><body><p><span style=\" font-size:18pt;\">输入音乐名称</span></p></body></html>"
+            ))
         self.ButtonSearch.setText(_translate("musicdowload", "搜索"))
-        self.textanswer.setHtml(_translate("musicdowload", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.textanswer.setHtml(
+            _translate(
+                "musicdowload",
+                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                "p, li { white-space: pre-wrap; }\n"
+                "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+                "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"
+            ))
         self.selectBox.setItemText(0, _translate("musicdowload", "1"))
         self.selectBox.setItemText(1, _translate("musicdowload", "2"))
         self.selectBox.setItemText(2, _translate("musicdowload", "3"))
@@ -156,9 +160,15 @@ class Ui_musicdowload(object):
         self.pushButton.clicked[bool].connect(self.setBrowerPath)
         self.type.setItemText(0, _translate("musicdowload", "qq音乐"))
         self.type.setItemText(1, _translate("musicdowload", "酷狗"))
+        self.type.setItemText(2, _translate("musicdowload", "网易"))
+        self.type.setItemText(3, _translate("musicdowload", "一听"))
 
+        self.label.setText(
+            _translate(
+                "musicdowload",
+                "<html><head/><body><p><span style=\" font-size:14pt;\">搜索</span></p><p><span style=\" font-size:14pt;\">结果</span></p></body></html>"
+            ))
 
-        self.label.setText(_translate("musicdowload", "<html><head/><body><p><span style=\" font-size:14pt;\">搜索</span></p><p><span style=\" font-size:14pt;\">结果</span></p></body></html>"))
     def download(self):
         print('下载开始')
 
@@ -169,7 +179,6 @@ class Ui_musicdowload(object):
         t1 = Thread(target=self.start_download)
         t1.start()
         time.sleep(0.1)
-
 
         pd = True
 
@@ -187,6 +196,7 @@ class Ui_musicdowload(object):
 
             except:
                 pass
+
     def start_download(self):
 
         path = self.lineEdit.text()
@@ -194,7 +204,8 @@ class Ui_musicdowload(object):
 
         number = self.selectBox.currentIndex()
         headers = {
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+            'user-agent':
+            'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
             'x-requested-with': 'XMLHttpRequest'
         }
         url = self.urls[number]
@@ -208,19 +219,21 @@ class Ui_musicdowload(object):
                 if music:
                     m.write(music)
 
-
     def setBrowerPath(self):
-        download_path = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                   "浏览",
-                                                                   "C:\\Users\Administrator\Desktop\下载音乐")
+        download_path = QtWidgets.QFileDialog.getExistingDirectory(
+            self, "浏览", "C:\\Users\Administrator\Desktop\下载音乐")
         self.lineEdit.setText(download_path)
-        with open('path.txt','w') as t:
+        with open('path.txt', 'w') as t:
             t.write(download_path)
-class MyWindow(QMainWindow,Ui_musicdowload):
-    def __init__(self,parent = None):
-        super(MyWindow,self).__init__(parent)
+
+
+class MyWindow(QMainWindow, Ui_musicdowload):
+    def __init__(self, parent=None):
+        super(MyWindow, self).__init__(parent)
         self.setupUi(self)
         self.update_path()
+
+
 app = QApplication(sys.argv)
 mywin = MyWindow()
 mywin.show()
