@@ -1,61 +1,20 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-22 13:12:06
- * @LastEditTime: 2020-11-22 13:37:11
- * @LastEditors: your name
+ * @LastEditTime: 2021-01-30 14:25:07
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \.git\vscode\html\main.html
+ * @FilePath: \Desktopd:\.git\vscode\html\main.html
 -->
-<!--index.wxml-->
-<view class="container">
-
-    <!-- 用户 openid -->
-    <view class="userinfo">
-        <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})" size="default"></button>
-        <view class="userinfo-nickname-wrapper">
-            <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-        </view>
-    </view>
-
-
-    <!-- 上传图片 -->
-    <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
-            <text>上传图片</text>
-        </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-        </view>
-    </view>
-
-
-    <!-- 操作数据库 -->
-    <view class="uploader">
-        <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-            <text>前端操作数据库</text>
-        </navigator>
-    </view>
-
-    <!-- 即时通信 -->
-    <view class="uploader">
-        <navigator url="../im/im" open-type="navigate" class="uploader-text">
-            <text>即时通信 Demo</text>
-        </navigator>
-    </view>
-
-    <!-- 新建云函数 -->
-    <view class="uploader">
-        <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-            <text>快速新建云函数</text>
-        </navigator>
-    </view>
-
-    <!-- 云调用 -->
-    <view class="uploader">
-        <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
-            <text>云调用</text>
-        </navigator>
-    </view>
-
-
-</view>
+<table>
+    <caption>运动员管理系统（球员）</caption>
+    <tr>
+        <th rowspan="2">名称</th>
+        <th rowspan="2">产量 (吨)</th>
+        <th colspan="2">环比</th>
+    </tr>
+    <tr>
+        <th>增长量 (吨)</th>
+        <th>增长率 (%)</th>
+    </tr>
+</table>
